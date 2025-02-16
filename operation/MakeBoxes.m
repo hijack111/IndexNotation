@@ -29,12 +29,9 @@ With[
     IFC = Gray;
     
     IT /: MakeBoxes[s : IT[ x_, TI[is__List] ], StandardForm] := With[
-        { boxes = SubscriptBox[
-            StyleBox[ RowBox[{ "[", ToBoxes[x], "]" }], SpanMaxSize -> Infinity ],
-            RowBox[ ToBoxes /@ First /@ Reverse[{is}] ]
-        ] },
-        
-        InterpretationBox[boxes, s]
+        { boxes = StyleBox[ RowBox[{ "[", ToBoxes[x], "]" }], SpanMaxSize -> Infinity ] },
+
+        InterpretationBox[boxes, s, Editable -> False, Selectable -> False, Tooltip -> "IndexTensor"]
     ];
     
     IS /: MakeBoxes[s : IS[ x_, SI[is__List] ], StandardForm] := With[
@@ -43,13 +40,13 @@ With[
             StyleBox[ RowBox[{ "(", ToBoxes[x], ")" }], SpanMaxSize -> Infinity ]
         }] },
         
-        InterpretationBox[boxes, s]
+        InterpretationBox[boxes, s, Editable -> False, Selectable -> False, Tooltip -> "IndexSum"]
     ];
     
     DI /: MakeBoxes[i : DI[n_ ? IntegerQ], StandardForm] /; n <= Length[IA] := With[
         { boxes = StyleBox[ IA[[n]], Background -> IB, FontColor -> IFC ] },
         
-        InterpretationBox[boxes, i]
+        InterpretationBox[boxes, i, Editable -> False, Selectable -> False]
     ];
 ]
 
