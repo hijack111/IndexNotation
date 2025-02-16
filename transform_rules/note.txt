@@ -1,33 +1,33 @@
 
-    T-T  ╶► T                               ╶┐
-    S-S  ╶► S                                │
+    T-T  ╶> T                               ╶┐
+    S-S  ╶> S                                │
                                              │
-    (P,M,SD) ╶► SD-(P,M) ╶┐                  │
-    T-SD     ╶► SD-T      ├─►  SD-(T,S,P,M)  │
-    S-SD     ╶► SD-S     ╶┘                  │
+    (P,M,SD) ╶> SD-(P,M) ╶┐                  │
+    T-SD     ╶> SD-T      ├─>  SD-(T,S,P,M)  │
+    S-SD     ╶> SD-S     ╶┘                  │
                                              │
-    M-T  ╶► T-M  ╶┐                          │
-    P-T  ╶► T-P   ├─►  T-(S,P,M)             ├─► SD-T-(P,M)-S-M
-    S-T  ╶► T-S  ╶┘                          │
-                                             │
-                                             │
-    S-M-P ╶► S-P-M  ╶┐                       │
-    S-P   ╶► P-S     ├─►  (P,M)-S-M          │
-    S-M-S ╶► S-M    ╶┘                       │
+    M-T  ╶> T-M  ╶┐                          │
+    P-T  ╶> T-P   ├─>  T-(S,P,M)             ├─> SD-T-(P,M)-S-M
+    S-T  ╶> T-S  ╶┘                          │
                                              │
                                              │
-    S-M ╶► M-S-M   (if possible)            ╶┘
+    S-M-P ╶> S-P-M  ╶┐                       │
+    S-P   ╶> P-S     ├─>  (P,M)-S-M          │
+    S-M-S ╶> S-M    ╶┘                       │
+                                             │
+                                             │
+    S-M ╶> M-S-M   (if possible)            ╶┘
 
 
     T - Tensor       S - Sum
     P - Plus         M - Times
     SD - SeriesData
 
-  - Putting T-(S,P,M) into automatic rewritting rules instead of
-    IndexSymplify makes tensor derivatives possible.
+  - Putting T-(S,P,M) into automatic rewriting rules instead of
+    IndexSimplify makes tensor derivatives possible.
 
 
-    S-D ╶► S
+    S-D ╶> S
 
     D - Kronecker delta
 
