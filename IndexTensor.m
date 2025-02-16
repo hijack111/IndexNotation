@@ -25,7 +25,7 @@ With[
  *    - Derivation on x adds item on the side of {j,3}, compatible with tensorial calculus.
  *    - Syntax highlight in Mathematica front-end is supported.
  *)
-    SetAttributes[IT, {NHoldRest}];
+    SetAttributes[IT, {NonThreadable, NHoldRest}];
     SetAttributes[TI, {}];
 
     IT[ x_, TI[] ] := x;
